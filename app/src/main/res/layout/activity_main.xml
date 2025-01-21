@@ -20,7 +20,7 @@
 
         <Button
             android:id="@+id/bCategories"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/main_margin_eighth"
             android:layout_weight="1"
@@ -30,7 +30,7 @@
 
         <Button
             android:id="@+id/bFavorites"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/main_margin_eighth"
             android:layout_weight="1"
