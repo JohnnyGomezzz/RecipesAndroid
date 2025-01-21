@@ -21,36 +21,34 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:weightSum="2"
+        android:orientation="horizontal"
+        android:layout_marginBottom="@dimen/main_margin_half"
         android:layout_marginStart="@dimen/main_margin"
         android:layout_marginEnd="@dimen/main_margin"
-        android:layout_marginBottom="@dimen/main_margin_half"
-        android:orientation="horizontal"
-        android:weightSum="2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
             android:id="@+id/bCategories"
-            style="@style/StyleNavButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/main_margin_eighth"
             android:layout_weight="1"
-            android:backgroundTint="@color/button_categories_color"
-            android:text="@string/button_categories" />
+            android:text="@string/button_categories"
+            style="@style/StyleNavButton"
+            android:backgroundTint="@color/button_categories_color"/>
 
         <Button
             android:id="@+id/bFavorites"
-            style="@style/StyleNavButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/main_margin_eighth"
             android:layout_weight="1"
-            android:backgroundTint="@color/button_favorites_color"
             android:text="@string/button_favorites"
+            style="@style/StyleNavButton"
             app:icon="@drawable/ic_heart_empty"
-            app:iconGravity="textEnd" />
+            app:iconGravity="textEnd"
+            android:backgroundTint="@color/button_favorites_color"/>
 
     </LinearLayout>
 
