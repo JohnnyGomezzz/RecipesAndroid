@@ -15,14 +15,16 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        _binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         if (savedInstanceState == null) {
             supportFragmentManager.commit {
                 setReorderingAllowed(true)
                 add<CategoriesListFragment>(R.id.mainContainer)
             }
         }
-        _binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
 
         binding.btnFavorites.setOnClickListener {
             supportFragmentManager.commit {
