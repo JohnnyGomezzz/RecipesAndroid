@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_marginHorizontal="@dimen/main_margin_half"
-    android:layout_marginVertical="@dimen/main_margin_half"
+    android:layout_margin="@dimen/main_margin_half"
     android:clickable="true"
     app:cardCornerRadius="@dimen/main_margin_half">
 
@@ -17,9 +16,10 @@
 
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="130dp"
+            android:layout_height="@dimen/category_item_pic_height"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/bg_categories" />
+            android:scaleType="centerCrop"
+            tools:src="@drawable/bg_categories"/>
 
         <TextView
             android:layout_width="wrap_content"

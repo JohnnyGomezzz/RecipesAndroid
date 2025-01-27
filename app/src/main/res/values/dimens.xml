@@ -4,4 +4,6 @@
     <dimen name="main_margin_half">8dp</dimen>
     <dimen name="main_margin_eighth">2dp</dimen>
     <dimen name="main_margin_double">32dp</dimen>
+    <dimen name="category_item_pic_height">130dp</dimen>
+    <dimen name="title_layout_height">244dp</dimen>
 </resources>
