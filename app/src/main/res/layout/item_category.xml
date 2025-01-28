@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="@dimen/main_margin_half"
+    android:clickable="true"
+    app:cardCornerRadius="@dimen/main_margin_half">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="top">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/category_item_pic_height"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/bg_categories"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_categories"
+            style="@style/StyleTitle14"
+            android:layout_margin="@dimen/main_margin_half"
+            tools:text="Бургеры"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_categories"
+            style="@style/StyleDescription12"
+            android:layout_margin="@dimen/main_margin_half"
+            tools:text="Рецепты всех популярных видов бургеров"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
