@@ -5,23 +5,26 @@
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_margin="@dimen/main_margin_half"
-    android:clickable="true"
     app:cardCornerRadius="@dimen/main_margin_half">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:gravity="top">
+        android:gravity="top"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true" >
 
         <ImageView
-            android:layout_width="wrap_content"
+            android:id="@+id/imCategory"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/category_item_pic_height"
             android:layout_gravity="center_horizontal"
             android:scaleType="centerCrop"
             tools:src="@drawable/bg_categories"/>
 
         <TextView
+            android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/button_categories"
@@ -30,6 +33,7 @@
             tools:text="Бургеры"/>
 
         <TextView
+            android:id="@+id/tvDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/button_categories"

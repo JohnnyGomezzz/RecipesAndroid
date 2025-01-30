@@ -18,7 +18,7 @@ object STUB {
         Category(
             id = 2,
             title = "Пицца",
-            description = "Рецепты всех популярных видов бургеров",
+            description = "Пицца на любой вкус и цвет. Лучшая подборка для тебя",
             imageUrl = "pizza.png"
         ),
         Category(
