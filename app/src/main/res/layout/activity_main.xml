@@ -16,7 +16,9 @@
         app:layout_constraintBottom_toTopOf="@+id/layoutButtonsMain"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        android:name="com.example.recipesandroid.CategoriesListFragment"
+        tools:layout="@layout/fragment_categories_list" />
 
     <LinearLayout
         android:id="@+id/layoutButtonsMain"

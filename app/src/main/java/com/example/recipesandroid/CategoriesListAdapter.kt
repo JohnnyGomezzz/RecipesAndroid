@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recipesandroid.databinding.ItemCategoryBinding
@@ -12,7 +13,20 @@ import com.example.recipesandroid.databinding.ItemCategoryBinding
 class CategoriesListAdapter(private val dataSet: List<Category>) :
     RecyclerView.Adapter<CategoriesListAdapter.ViewHolder>() {
 
+    interface OnItemClickListener {
+
+        fun onItemClick()
+
+    }
+
+        private var itemClickListener: OnItemClickListener? = null
+
+    fun setOnItemClickListener(listener: OnItemClickListener) {
+        itemClickListener = listener
+    }
+
     class ViewHolder(binding: ItemCategoryBinding) : RecyclerView.ViewHolder(binding.root) {
+        val layoutCategory: LinearLayout = binding.layoutCategory
         val imageView: ImageView = binding.imCategory
         val titleTextView: TextView = binding.tvTitle
         val titleDescriptionView: TextView = binding.tvDescription
@@ -43,6 +57,10 @@ class CategoriesListAdapter(private val dataSet: List<Category>) :
             }
         viewHolder.imageView.setImageDrawable(drawable)
         viewHolder.imageView.setContentDescription(category.title)
+
+        viewHolder.layoutCategory.setOnClickListener {
+            itemClickListener?.onItemClick()
+        }
     }
 
     override fun getItemCount() = dataSet.size
