@@ -13,6 +13,10 @@ class RecipesListFragment : Fragment() {
     private val binding
         get() = _binding ?: throw IllegalStateException("Binding for FragmentRecipesListBinding must not be null")
 
+    private var categoryId: String? = null
+    var categoryName: String? = null
+    var categoryImageUrl: String? = null
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -20,6 +24,13 @@ class RecipesListFragment : Fragment() {
     ): View {
         _binding = FragmentRecipesListBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        categoryId = requireArguments().getString(categoryId)
+        categoryName = requireArguments().getString(categoryName)
+        categoryImageUrl = requireArguments().getString(categoryImageUrl)
     }
 
     override fun onDestroy() {

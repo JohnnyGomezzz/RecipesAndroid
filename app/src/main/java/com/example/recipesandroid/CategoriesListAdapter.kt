@@ -15,7 +15,7 @@ class CategoriesListAdapter(private val dataSet: List<Category>) :
 
     interface OnItemClickListener {
 
-        fun onItemClick()
+        fun onItemClick(categoryId: Int)
 
     }
 
@@ -59,7 +59,7 @@ class CategoriesListAdapter(private val dataSet: List<Category>) :
         viewHolder.imageView.setContentDescription(category.title)
 
         viewHolder.layoutCategory.setOnClickListener {
-            itemClickListener?.onItemClick()
+            itemClickListener?.onItemClick(category.id)
         }
     }
 

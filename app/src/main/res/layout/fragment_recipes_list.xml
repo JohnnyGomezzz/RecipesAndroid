@@ -24,7 +24,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/text_stub"
+            android:text="Рецепт"
             android:background="@drawable/shape_title24"
             style="@style/StyleTitle24"
             app:layout_constraintBottom_toBottomOf="parent"
