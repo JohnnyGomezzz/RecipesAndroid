@@ -8,6 +8,7 @@
     app:cardCornerRadius="@dimen/main_margin_half">
 
     <LinearLayout
+        android:id="@+id/layoutCategory"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -16,12 +17,14 @@
         android:clickable="true" >
 
         <ImageView
+            android:contentDescription="@string/description_category_item"
             android:id="@+id/imCategory"
             android:layout_width="match_parent"
             android:layout_height="@dimen/category_item_pic_height"
             android:layout_gravity="center_horizontal"
             android:scaleType="centerCrop"
-            tools:src="@drawable/bg_categories"/>
+            tools:src="@drawable/bg_categories"
+            tools:ignore="contentDescription"/>
 
         <TextView
             android:id="@+id/tvTitle"
