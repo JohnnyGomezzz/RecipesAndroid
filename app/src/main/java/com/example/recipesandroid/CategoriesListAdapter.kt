@@ -19,7 +19,7 @@ class CategoriesListAdapter(private val dataSet: List<Category>) :
 
     }
 
-        private var itemClickListener: OnItemClickListener? = null
+    private var itemClickListener: OnItemClickListener? = null
 
     fun setOnItemClickListener(listener: OnItemClickListener) {
         itemClickListener = listener
