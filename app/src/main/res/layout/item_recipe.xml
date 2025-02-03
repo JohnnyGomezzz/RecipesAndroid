@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="@dimen/main_margin_half"
+    app:cardCornerRadius="@dimen/main_margin_half">
+
+    <LinearLayout
+        android:id="@+id/layoutRecipe"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="top"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true" >
+
+        <ImageView
+            android:contentDescription="@string/description_category_item"
+            android:id="@+id/imRecipe"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/recipe_item_pic_height"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/bg_categories"
+            tools:ignore="contentDescription"/>
+
+        <TextView
+            android:id="@+id/tvTitleRecipe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_categories"
+            style="@style/StyleTitle14"
+            android:layout_margin="@dimen/main_margin_half"
+            tools:text="Бургеры"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

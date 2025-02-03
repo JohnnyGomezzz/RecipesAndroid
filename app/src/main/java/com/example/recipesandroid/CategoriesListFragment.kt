@@ -8,11 +8,10 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
+import com.example.recipesandroid.Constants.ARG_CATEGORY_ID
+import com.example.recipesandroid.Constants.ARG_CATEGORY_IMAGE_URL
+import com.example.recipesandroid.Constants.ARG_CATEGORY_NAME
 import com.example.recipesandroid.databinding.FragmentCategoriesListBinding
-
-const val ARG_CATEGORY_ID = 0
-const val ARG_CATEGORY_NAME = 1
-const val ARG_CATEGORY_IMAGE_URL = 2
 
 class CategoriesListFragment : Fragment() {
 
@@ -45,9 +44,9 @@ class CategoriesListFragment : Fragment() {
         binding.rvCategories.adapter = categoriesAdapter
 
         categoriesAdapter.setOnItemClickListener(
-            object : CategoriesListAdapter.OnItemClickListener {
-                override fun onItemClick(categoryId: Int) {
-                    openRecipesByCategoryId(categoryId)
+            object : OnItemClickListener {
+                override fun onItemClick(id: Int) {
+                    openRecipesByCategoryId(id)
                 }
             }
         )
@@ -57,14 +56,14 @@ class CategoriesListFragment : Fragment() {
         val categoryName = STUB.getCategories().filter { it.id == categoryId }[0].title
         val categoryImageUrl = STUB.getCategories().filter { it.id == categoryId }[0].imageUrl
 
+        val bundle = (categoryImageUrl)?.let {
+            bundleOf(
+                ARG_CATEGORY_ID to categoryId,
+                ARG_CATEGORY_NAME to categoryName,
+                ARG_CATEGORY_IMAGE_URL to it,
+            )
+        }
         parentFragmentManager.commit {
-            val bundle = (categoryImageUrl)?.let {
-                bundleOf(
-                    categoryId.toString() to ARG_CATEGORY_ID,
-                    categoryName to ARG_CATEGORY_NAME,
-                    it to ARG_CATEGORY_IMAGE_URL,
-                )
-            }
             replace<RecipesListFragment>(R.id.mainContainer, args = bundle)
             setReorderingAllowed(true)
             addToBackStack(null)
