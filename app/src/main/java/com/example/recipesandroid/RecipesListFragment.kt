@@ -7,11 +7,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 import com.example.recipesandroid.Constants.ARG_CATEGORY_ID
 import com.example.recipesandroid.Constants.ARG_CATEGORY_IMAGE_URL
 import com.example.recipesandroid.Constants.ARG_CATEGORY_NAME
+import com.example.recipesandroid.Constants.ARG_RECIPE
 import com.example.recipesandroid.databinding.FragmentRecipesListBinding
 
 class RecipesListFragment : Fragment() {
@@ -53,14 +55,14 @@ class RecipesListFragment : Fragment() {
                 Log.d("!!!", "Image not found: $categoryImageUrl")
                 null
             }
-        binding.imageRecipes.setImageDrawable(drawable)
-        binding.tvRecipes.text = categoryName
+        binding.imageRecipesList.setImageDrawable(drawable)
+        binding.tvRecipesList.text = categoryName
 
     }
 
     private fun initRecycler() {
         val recipesAdapter = RecipesListAdapter(STUB.getRecipesByCategoryId(0))
-        binding.rvRecipes.adapter = recipesAdapter
+        binding.rvRecipesList.adapter = recipesAdapter
 
         recipesAdapter.setOnItemClickListener(
             object : OnItemClickListener {
@@ -72,8 +74,11 @@ class RecipesListFragment : Fragment() {
     }
 
     private fun openRecipeByRecipeId(recipeId: Int) {
+        val recipe = STUB.getRecipeById(recipeId)
+        val bundle = bundleOf(ARG_RECIPE to recipe)
+
         parentFragmentManager.commit {
-            replace<RecipeFragment>(R.id.mainContainer)
+            replace<RecipeFragment>(R.id.mainContainer, args = bundle)
             setReorderingAllowed(true)
             addToBackStack(null)
         }

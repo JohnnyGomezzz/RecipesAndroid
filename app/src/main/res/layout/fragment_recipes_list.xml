@@ -12,7 +12,7 @@
         android:layout_height="@dimen/title_layout_height" >
 
         <ImageView
-            android:id="@+id/imageRecipes"
+            android:id="@+id/imageRecipesList"
             android:contentDescription="@string/description_recipes"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -23,7 +23,7 @@
 
 
         <TextView
-            android:id="@+id/tvRecipes"
+            android:id="@+id/tvRecipesList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/shape_title24"
@@ -37,7 +37,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvRecipes"
+        android:id="@+id/rvRecipesList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/main_margin_half"

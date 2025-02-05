@@ -7,9 +7,9 @@
     tools:context=".FavoritesListFragment">
 
     <TextView
+        android:id="@+id/tvRecipe"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Какой-то рецепт"
         android:gravity="center"/>
 
 </FrameLayout>
