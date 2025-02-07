@@ -2,6 +2,6 @@
     <string name="app_name">RecipesAndroid</string>
     <string name="button_favorites">Избранное</string>
     <string name="button_categories">Категории</string>
-    <string name="description_recipes">Рецепты</string>
-    <string name="description_category_item">Карточка категории</string>
+    <string name="title_ingredients">Ингредиенты</string>
+    <string name="title_method">Способ приготовления</string>
 </resources>

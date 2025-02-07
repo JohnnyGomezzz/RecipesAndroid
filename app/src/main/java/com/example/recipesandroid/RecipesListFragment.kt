@@ -42,8 +42,11 @@ class RecipesListFragment : Fragment() {
         categoryName = requireArguments().getString(ARG_CATEGORY_NAME)
         categoryImageUrl = requireArguments().getString(ARG_CATEGORY_IMAGE_URL)
 
+        initUI(view)
         initRecycler()
+    }
 
+    private fun initUI(view: View) {
         val drawable =
             try {
                 Drawable.createFromStream(categoryImageUrl?.let {
@@ -56,8 +59,8 @@ class RecipesListFragment : Fragment() {
                 null
             }
         binding.imageRecipesList.setImageDrawable(drawable)
+        binding.imageRecipesList.contentDescription = categoryName
         binding.tvRecipesList.text = categoryName
-
     }
 
     private fun initRecycler() {

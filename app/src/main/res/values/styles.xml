@@ -8,6 +8,19 @@
         <item name="android:textAllCaps">true</item>
     </style>
 
+    <style name="StyleIngredient" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#666666</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="StyleMethod" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#666666</item>
+    </style>
+
     <style name="StyleDescription12" parent="TextAppearance.AppCompat">
         <item name="android:fontFamily">@font/montserrat_medium</item>
         <item name="android:textSize">12sp</item>
@@ -27,6 +40,16 @@
         <item name="android:textColor">#5F3678</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:padding">10dp</item>
+        <item name="android:scrollHorizontally">false</item>
+        <item name="android:background">@drawable/shape_title24</item>
+    </style>
+
+    <style name="Style24" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/montserrat_alternates_semibold</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">#422952</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:scrollHorizontally">false</item>
     </style>
 
     <style name="StyleNavButton" parent="Widget.Material3.Button">
