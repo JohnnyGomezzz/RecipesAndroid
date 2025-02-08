@@ -12,6 +12,7 @@
         android:layout_height="@dimen/title_layout_height" >
 
         <ImageView
+            android:contentDescription="@string/button_categories"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
@@ -25,7 +26,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/button_categories"
-            android:background="@drawable/shape_title24"
             style="@style/StyleTitle24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"

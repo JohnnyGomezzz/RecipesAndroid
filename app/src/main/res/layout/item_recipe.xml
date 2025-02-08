@@ -17,7 +17,6 @@
         android:clickable="true" >
 
         <ImageView
-            android:contentDescription="@string/description_category_item"
             android:id="@+id/imRecipe"
             android:layout_width="match_parent"
             android:layout_height="@dimen/recipe_item_pic_height"

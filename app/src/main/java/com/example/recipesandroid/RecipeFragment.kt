@@ -1,13 +1,18 @@
 package com.example.recipesandroid
 
+import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.recipesandroid.Constants.ARG_RECIPE
 import com.example.recipesandroid.databinding.FragmentRecipeBinding
+import com.google.android.material.divider.MaterialDividerItemDecoration
+
 
 class RecipeFragment : Fragment() {
 
@@ -34,7 +39,50 @@ class RecipeFragment : Fragment() {
             requireArguments().getParcelable(ARG_RECIPE)
         }
 
+        initUI(view, recipe)
+        initIngredientsRecycler(recipe)
+        initMethodRecycler(recipe)
+    }
+
+    private fun initUI(view: View, recipe: Recipe?) {
+        val drawable =
+            try {
+                Drawable.createFromStream(recipe?.imageUrl?.let {
+                    view.context.assets.open(
+                        it
+                    )
+                }, null)
+            } catch (e: Exception) {
+                Log.d("!!!", "Image not found: ${recipe?.imageUrl}")
+                null
+            }
+        val layoutManager = LinearLayoutManager(view.context)
+        val dividerItemDecoration = MaterialDividerItemDecoration(
+            view.context,
+            layoutManager.orientation
+        )
+        binding.imageRecipe.setImageDrawable(drawable)
         binding.tvRecipe.text = recipe?.title
+        binding.imageRecipe.contentDescription = recipe?.title
+
+        dividerItemDecoration.apply {
+            dividerInsetEnd = 20
+            dividerInsetStart = 20
+            isLastItemDecorated = false
+            dividerColor = 0xfff5f5f5.toInt()
+        }
+        binding.rvIngredients.addItemDecoration(dividerItemDecoration)
+        binding.rvMethod.addItemDecoration(dividerItemDecoration)
+    }
+
+    private fun initIngredientsRecycler(recipe: Recipe?) {
+        val ingredientsAdapter = recipe?.let { IngredientsAdapter(it.ingredients) }
+        binding.rvIngredients.adapter = ingredientsAdapter
+    }
+
+    private fun initMethodRecycler(recipe: Recipe?) {
+        val methodAdapter = recipe?.let { MethodAdapter(it.method) }
+        binding.rvMethod.adapter = methodAdapter
     }
 
     override fun onDestroy() {
