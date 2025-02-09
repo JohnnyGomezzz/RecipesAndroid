@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SeekBar
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.recipesandroid.Constants.ARG_RECIPE
@@ -40,7 +41,7 @@ class RecipeFragment : Fragment() {
         }
 
         initUI(view, recipe)
-        initIngredientsRecycler(recipe)
+        initIngredientsRecycler(recipe, view)
         initMethodRecycler(recipe)
     }
 
@@ -75,9 +76,30 @@ class RecipeFragment : Fragment() {
         binding.rvMethod.addItemDecoration(dividerItemDecoration)
     }
 
-    private fun initIngredientsRecycler(recipe: Recipe?) {
+    private fun initIngredientsRecycler(recipe: Recipe?, view: View) {
         val ingredientsAdapter = recipe?.let { IngredientsAdapter(it.ingredients) }
         binding.rvIngredients.adapter = ingredientsAdapter
+
+        view.setOnSeekBarChangelistener(
+            object : SeekBar.OnSeekBarChangeListener {
+                override fun onProgressChanged(
+                    seekBar: SeekBar?,
+                    progress: Int,
+                    fromUser: Boolean
+                ) {
+                    TODO("Not yet implemented")
+                }
+
+                override fun onStartTrackingTouch(seekBar: SeekBar?) {
+                    TODO("Not yet implemented")
+                }
+
+                override fun onStopTrackingTouch(seekBar: SeekBar?) {
+                    TODO("Not yet implemented")
+                }
+
+            }
+        )
     }
 
     private fun initMethodRecycler(recipe: Recipe?) {
