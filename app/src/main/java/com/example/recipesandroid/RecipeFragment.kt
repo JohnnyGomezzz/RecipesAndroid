@@ -1,5 +1,6 @@
 package com.example.recipesandroid
 
+import android.annotation.SuppressLint
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
@@ -41,7 +42,7 @@ class RecipeFragment : Fragment() {
         }
 
         initUI(view, recipe)
-        initIngredientsRecycler(recipe, view)
+        initIngredientsRecycler(recipe)
         initMethodRecycler(recipe)
     }
 
@@ -76,26 +77,27 @@ class RecipeFragment : Fragment() {
         binding.rvMethod.addItemDecoration(dividerItemDecoration)
     }
 
-    private fun initIngredientsRecycler(recipe: Recipe?, view: View) {
+    private fun initIngredientsRecycler(recipe: Recipe?) {
         val ingredientsAdapter = recipe?.let { IngredientsAdapter(it.ingredients) }
         binding.rvIngredients.adapter = ingredientsAdapter
 
-        view.setOnSeekBarChangelistener(
+        binding.sbPortions.setOnSeekBarChangeListener(
             object : SeekBar.OnSeekBarChangeListener {
+                @SuppressLint("NotifyDataSetChanged")
                 override fun onProgressChanged(
                     seekBar: SeekBar?,
                     progress: Int,
                     fromUser: Boolean
                 ) {
-                    TODO("Not yet implemented")
+                    ingredientsAdapter?.updateIngredients(progress)
+                    binding.tvQuantityOfPortions.text = "$progress"
+                    ingredientsAdapter?.notifyDataSetChanged()
                 }
 
                 override fun onStartTrackingTouch(seekBar: SeekBar?) {
-                    TODO("Not yet implemented")
                 }
 
                 override fun onStopTrackingTouch(seekBar: SeekBar?) {
-                    TODO("Not yet implemented")
                 }
 
             }
