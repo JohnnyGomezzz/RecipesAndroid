@@ -4,4 +4,6 @@
     <string name="button_categories">Категории</string>
     <string name="title_ingredients">Ингредиенты</string>
     <string name="title_method">Способ приготовления</string>
+    <string name="string_portions">Порции:</string>
+    <string name="string_portions_min">1</string>
 </resources>

@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/button_categories"
-            style="@style/StyleTitle24"
+            style="@style/StyleTitle20"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginBottom="@dimen/main_margin"

@@ -12,7 +12,7 @@ object STUB {
         Category(
             id = 1,
             title = "Десерты",
-            description = "Самые вкусные рецепты десертов специально для вас",
+            description = "Рецепты самых вкусных десертов специально для тебя",
             imageUrl = "dessert.png"
         ),
         Category(
