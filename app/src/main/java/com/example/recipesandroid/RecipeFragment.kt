@@ -1,6 +1,5 @@
 package com.example.recipesandroid
 
-import android.annotation.SuppressLint
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
@@ -83,15 +82,13 @@ class RecipeFragment : Fragment() {
 
         binding.sbPortions.setOnSeekBarChangeListener(
             object : SeekBar.OnSeekBarChangeListener {
-                @SuppressLint("NotifyDataSetChanged")
                 override fun onProgressChanged(
                     seekBar: SeekBar?,
                     progress: Int,
                     fromUser: Boolean
                 ) {
-                    ingredientsAdapter?.updateIngredients(progress)
+                    ingredientsAdapter?.updateIngredients(progress, ingredientsAdapter)
                     binding.tvQuantityOfPortions.text = "$progress"
-                    ingredientsAdapter?.notifyDataSetChanged()
                 }
 
                 override fun onStartTrackingTouch(seekBar: SeekBar?) {

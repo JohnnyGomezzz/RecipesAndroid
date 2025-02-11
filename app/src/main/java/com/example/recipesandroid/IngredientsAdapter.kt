@@ -1,10 +1,13 @@
 package com.example.recipesandroid
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recipesandroid.databinding.ItemIngredientBinding
+import java.math.BigDecimal
+import java.math.RoundingMode
 
 class IngredientsAdapter(private val dataSet: List<Ingredient>) :
     RecyclerView.Adapter<IngredientsAdapter.ViewHolder>() {
@@ -24,28 +27,26 @@ class IngredientsAdapter(private val dataSet: List<Ingredient>) :
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         val ingredient: Ingredient = dataSet[position]
-        val newQuantity = ingredient.quantity.toDouble() * quantityOfPortions
+        val totalQuantity = BigDecimal(ingredient.quantity) * BigDecimal(quantityOfPortions)
+        val displayQuantity = totalQuantity
+            .setScale(1, RoundingMode.HALF_UP)
+            .stripTrailingZeros()
+            .toPlainString()
 
         viewHolder.ingredientDescription.text = ingredient.description
         viewHolder.ingredientQuantityAndUnits.text = String.format(
             "%s %s",
-            hasDot(newQuantity),
+            displayQuantity,
             ingredient.unitOfMeasure,
         )
     }
 
-    private fun hasDot(quantity: Double): String {
-        return if (quantity % 1.0 == 0.0) {
-            quantity.toString().substringBefore(".")
-        } else {
-            quantity.toString()
-        }
-    }
-
     override fun getItemCount() = dataSet.size
 
-    fun updateIngredients(progress: Int) {
+    @SuppressLint("NotifyDataSetChanged")
+    fun updateIngredients(progress: Int, ingredientsAdapter: IngredientsAdapter) {
         quantityOfPortions = progress
+        ingredientsAdapter.notifyDataSetChanged()
     }
 
 }
