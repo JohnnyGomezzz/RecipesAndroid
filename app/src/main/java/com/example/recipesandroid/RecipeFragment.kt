@@ -87,7 +87,7 @@ class RecipeFragment : Fragment() {
                     progress: Int,
                     fromUser: Boolean
                 ) {
-                    ingredientsAdapter?.updateIngredients(progress, ingredientsAdapter)
+                    ingredientsAdapter?.updateIngredients(progress)
                     binding.tvQuantityOfPortions.text = "$progress"
                 }
 
