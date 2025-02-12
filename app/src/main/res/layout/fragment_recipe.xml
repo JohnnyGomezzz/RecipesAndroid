@@ -77,7 +77,8 @@
             android:layout_marginTop="@dimen/padding_6"
             android:min="1"
             android:max="5"
-            android:progress="1">
+            android:progress="1"
+            style="@style/StyleSeekBar">
 
         </SeekBar>
 
