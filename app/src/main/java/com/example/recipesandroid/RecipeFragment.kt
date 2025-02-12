@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SeekBar
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.recipesandroid.Constants.ARG_RECIPE
@@ -78,6 +79,26 @@ class RecipeFragment : Fragment() {
     private fun initIngredientsRecycler(recipe: Recipe?) {
         val ingredientsAdapter = recipe?.let { IngredientsAdapter(it.ingredients) }
         binding.rvIngredients.adapter = ingredientsAdapter
+
+        binding.sbPortions.setOnSeekBarChangeListener(
+            object : SeekBar.OnSeekBarChangeListener {
+                override fun onProgressChanged(
+                    seekBar: SeekBar?,
+                    progress: Int,
+                    fromUser: Boolean
+                ) {
+                    ingredientsAdapter?.updateIngredients(progress)
+                    binding.tvQuantityOfPortions.text = "$progress"
+                }
+
+                override fun onStartTrackingTouch(seekBar: SeekBar?) {
+                }
+
+                override fun onStopTrackingTouch(seekBar: SeekBar?) {
+                }
+
+            }
+        )
     }
 
     private fun initMethodRecycler(recipe: Recipe?) {

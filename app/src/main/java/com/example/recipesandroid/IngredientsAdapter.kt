@@ -1,13 +1,18 @@
 package com.example.recipesandroid
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recipesandroid.databinding.ItemIngredientBinding
+import java.math.BigDecimal
+import java.math.RoundingMode
 
 class IngredientsAdapter(private val dataSet: List<Ingredient>) :
     RecyclerView.Adapter<IngredientsAdapter.ViewHolder>() {
+
+        private var quantityOfPortions = 1
 
     class ViewHolder(binding: ItemIngredientBinding) : RecyclerView.ViewHolder(binding.root) {
         val ingredientDescription: TextView = binding.tvIngredientDescription
@@ -22,15 +27,26 @@ class IngredientsAdapter(private val dataSet: List<Ingredient>) :
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         val ingredient: Ingredient = dataSet[position]
+        val totalQuantity = BigDecimal(ingredient.quantity) * BigDecimal(quantityOfPortions)
+        val displayQuantity = totalQuantity
+            .setScale(1, RoundingMode.HALF_UP)
+            .stripTrailingZeros()
+            .toPlainString()
 
         viewHolder.ingredientDescription.text = ingredient.description
         viewHolder.ingredientQuantityAndUnits.text = String.format(
             "%s %s",
-            ingredient.quantity,
+            displayQuantity,
             ingredient.unitOfMeasure,
         )
     }
 
     override fun getItemCount() = dataSet.size
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun updateIngredients(progress: Int) {
+        quantityOfPortions = progress
+        notifyDataSetChanged()
+    }
 
 }
