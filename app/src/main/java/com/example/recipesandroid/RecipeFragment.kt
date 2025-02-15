@@ -74,6 +74,17 @@ class RecipeFragment : Fragment() {
         }
         binding.rvIngredients.addItemDecoration(dividerItemDecoration)
         binding.rvMethod.addItemDecoration(dividerItemDecoration)
+
+        with(binding) {
+            ibIsNotFavorite.setOnClickListener {
+                ibIsNotFavorite.visibility = View.INVISIBLE
+                ibIsFavorite.visibility = View.VISIBLE
+            }
+            ibIsFavorite.setOnClickListener {
+                ibIsNotFavorite.visibility = View.VISIBLE
+                ibIsFavorite.visibility = View.INVISIBLE
+            }
+        }
     }
 
     private fun initIngredientsRecycler(recipe: Recipe?) {

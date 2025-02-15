@@ -70,4 +70,11 @@
         <item name="android:paddingEnd">@dimen/margin_seekbar</item>
     </style>
 
+    <style name="StyleButtonFavorite" parent="Widget.AppCompat.ImageButton">
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+        <item name="android:layout_marginTop">@dimen/icon_margin_top</item>
+        <item name="android:layout_marginEnd">@dimen/icon_margin_end</item>
+    </style>
+
 </resources>

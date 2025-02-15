@@ -37,15 +37,29 @@
                 app:layout_constraintStart_toStartOf="parent"
                 tools:text="Заглушка" />
 
-            <ImageView
+            <ImageButton
+                android:id="@+id/ibIsFavorite"
+                style="@style/StyleButtonFavorite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/description_favorites_recipe"
                 android:src="@drawable/ic_heart_filled"
+                android:visibility="invisible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginEnd="@dimen/icon_margin_end"
-                android:layout_marginTop="@dimen/icon_margin_top"/>
+                tools:visibility="invisible" />
+
+            <ImageButton
+                android:id="@+id/ibIsNotFavorite"
+                style="@style/StyleButtonFavorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/description_not_favorites_recipe"
+                android:src="@drawable/ic_heart_empty"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
