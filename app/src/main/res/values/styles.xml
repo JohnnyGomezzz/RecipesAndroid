@@ -66,6 +66,8 @@
     <style name="StyleSeekBar" parent="Widget.AppCompat.SeekBar">
         <item name="android:progressDrawable">@drawable/shape_seekbar_progress</item>
         <item name="android:thumb">@drawable/shape_seekbar_thumb</item>
+        <item name="android:paddingStart">@dimen/margin_seekbar</item>
+        <item name="android:paddingEnd">@dimen/margin_seekbar</item>
     </style>
 
 </resources>
