@@ -6,4 +6,6 @@
     <string name="title_method">Способ приготовления</string>
     <string name="string_portions">Порции:</string>
     <string name="string_portions_min">1</string>
+    <string name="description_favorites_recipe">Добавить в избранное</string>
+    <string name="description_not_favorites_recipe">Убрать из избранного</string>
 </resources>

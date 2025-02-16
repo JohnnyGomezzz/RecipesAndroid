@@ -66,6 +66,15 @@
     <style name="StyleSeekBar" parent="Widget.AppCompat.SeekBar">
         <item name="android:progressDrawable">@drawable/shape_seekbar_progress</item>
         <item name="android:thumb">@drawable/shape_seekbar_thumb</item>
+        <item name="android:paddingStart">@dimen/margin_seekbar</item>
+        <item name="android:paddingEnd">@dimen/margin_seekbar</item>
+    </style>
+
+    <style name="StyleButtonFavorite" parent="Widget.AppCompat.ImageButton">
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+        <item name="android:layout_marginTop">@dimen/icon_margin_top</item>
+        <item name="android:layout_marginEnd">@dimen/icon_margin_end</item>
     </style>
 
 </resources>
