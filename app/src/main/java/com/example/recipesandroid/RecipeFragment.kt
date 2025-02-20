@@ -1,5 +1,7 @@
 package com.example.recipesandroid
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
@@ -11,6 +13,8 @@ import android.widget.SeekBar
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.recipesandroid.Constants.ARG_RECIPE
+import com.example.recipesandroid.Constants.FAVORITES_PREFS_FILE_KEY
+import com.example.recipesandroid.Constants.FAVORITE_RECIPES_KEY
 import com.example.recipesandroid.databinding.FragmentRecipeBinding
 import com.google.android.material.divider.MaterialDividerItemDecoration
 
@@ -21,6 +25,13 @@ class RecipeFragment : Fragment() {
     private val binding
         get() = _binding
             ?: throw IllegalStateException("Binding for FragmentRecipeBinding must not be null")
+
+    private val sharedPref: SharedPreferences by lazy {
+        context?.getSharedPreferences(FAVORITES_PREFS_FILE_KEY, Context.MODE_PRIVATE)
+            ?: throw IllegalStateException(
+                "Fragment $this not attached to a context."
+            )
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -62,9 +73,7 @@ class RecipeFragment : Fragment() {
             view.context,
             layoutManager.orientation
         )
-        binding.imageRecipe.setImageDrawable(drawable)
-        binding.tvRecipe.text = recipe?.title
-        binding.imageRecipe.contentDescription = recipe?.title
+        val favoriteRecipesIds = getFavorites()
 
         dividerItemDecoration.apply {
             dividerInsetEnd = 20
@@ -72,17 +81,33 @@ class RecipeFragment : Fragment() {
             isLastItemDecorated = false
             dividerColor = 0xfff5f5f5.toInt()
         }
-        binding.rvIngredients.addItemDecoration(dividerItemDecoration)
-        binding.rvMethod.addItemDecoration(dividerItemDecoration)
 
         with(binding) {
+            imageRecipe.setImageDrawable(drawable)
+            tvRecipe.text = recipe?.title
+            imageRecipe.contentDescription = recipe?.title
+
+            rvIngredients.addItemDecoration(dividerItemDecoration)
+            rvMethod.addItemDecoration(dividerItemDecoration)
+
+            if (favoriteRecipesIds.contains(recipe?.id.toString())) {
+                ibIsNotFavorite.visibility = View.INVISIBLE
+                ibIsFavorite.visibility = View.VISIBLE
+            } else {
+                ibIsNotFavorite.visibility = View.VISIBLE
+                ibIsFavorite.visibility = View.INVISIBLE
+            }
             ibIsNotFavorite.setOnClickListener {
                 ibIsNotFavorite.visibility = View.INVISIBLE
                 ibIsFavorite.visibility = View.VISIBLE
+                favoriteRecipesIds.add(recipe?.id.toString())
+                saveFavorites(favoriteRecipesIds)
             }
             ibIsFavorite.setOnClickListener {
                 ibIsNotFavorite.visibility = View.VISIBLE
                 ibIsFavorite.visibility = View.INVISIBLE
+                favoriteRecipesIds.remove(recipe?.id.toString())
+                saveFavorites(favoriteRecipesIds)
             }
         }
     }
@@ -115,6 +140,18 @@ class RecipeFragment : Fragment() {
     private fun initMethodRecycler(recipe: Recipe?) {
         val methodAdapter = recipe?.let { MethodAdapter(it.method) }
         binding.rvMethod.adapter = methodAdapter
+    }
+
+    private fun saveFavorites(recipesIds: MutableSet<String>) {
+        with(sharedPref.edit()) {
+            putStringSet(FAVORITE_RECIPES_KEY, recipesIds)
+            apply()
+        }
+    }
+
+    private fun getFavorites(): HashSet<String> {
+        return sharedPref.getStringSet(FAVORITE_RECIPES_KEY, null)?.let { HashSet(it) }
+            ?: hashSetOf()
     }
 
     override fun onDestroy() {

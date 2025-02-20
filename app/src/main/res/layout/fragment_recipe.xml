@@ -40,8 +40,6 @@
             <ImageButton
                 android:id="@+id/ibIsFavorite"
                 style="@style/StyleButtonFavorite"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:contentDescription="@string/description_favorites_recipe"
                 android:src="@drawable/ic_heart_filled"
                 android:visibility="invisible"
@@ -52,8 +50,6 @@
             <ImageButton
                 android:id="@+id/ibIsNotFavorite"
                 style="@style/StyleButtonFavorite"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:contentDescription="@string/description_not_favorites_recipe"
                 android:src="@drawable/ic_heart_empty"
                 android:visibility="visible"
