@@ -1,6 +1,7 @@
 package com.example.recipesandroid
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
@@ -24,6 +25,13 @@ class RecipeFragment : Fragment() {
     private val binding
         get() = _binding
             ?: throw IllegalStateException("Binding for FragmentRecipeBinding must not be null")
+
+    private val sharedPref: SharedPreferences by lazy {
+        context?.getSharedPreferences(FAVORITES_PREFS_FILE_KEY, Context.MODE_PRIVATE)
+            ?: throw IllegalStateException(
+                "Fragment $this not attached to a context."
+            )
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -135,23 +143,15 @@ class RecipeFragment : Fragment() {
     }
 
     private fun saveFavorites(recipesIds: MutableSet<String>) {
-        val sharedPref =
-            activity?.getSharedPreferences(FAVORITES_PREFS_FILE_KEY, Context.MODE_PRIVATE)
-        if (sharedPref == null) {
-            return
-        } else {
-            with(sharedPref.edit()) {
-                putStringSet(FAVORITE_RECIPES_KEY, recipesIds)
-                apply()
-            }
+        with(sharedPref.edit()) {
+            putStringSet(FAVORITE_RECIPES_KEY, recipesIds)
+            apply()
         }
     }
 
     private fun getFavorites(): HashSet<String> {
-        val sharedPref =
-            activity?.getSharedPreferences(FAVORITES_PREFS_FILE_KEY, Context.MODE_PRIVATE)
-        return sharedPref?.getStringSet(FAVORITE_RECIPES_KEY, null)?.let { HashSet(it) }
-            ?: HashSet()
+        return sharedPref.getStringSet(FAVORITE_RECIPES_KEY, null)?.let { HashSet(it) }
+            ?: hashSetOf()
     }
 
     override fun onDestroy() {
