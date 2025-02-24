@@ -27,6 +27,13 @@
         <item name="android:textColor">@color/portions_color</item>
     </style>
 
+    <style name="StyleNoFavorites" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="android:textSize">@dimen/text_16</item>
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:layout_margin">@dimen/main_margin</item>
+    </style>
+
     <style name="StyleDescription12" parent="TextAppearance.AppCompat">
         <item name="android:fontFamily">@font/montserrat_medium</item>
         <item name="android:textSize">@dimen/text_12</item>

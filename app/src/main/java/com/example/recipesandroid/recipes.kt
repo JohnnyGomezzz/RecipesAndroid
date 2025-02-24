@@ -276,4 +276,12 @@ object STUB {
     fun getRecipeById(recipeId: Int): Recipe {
         return burgerRecipes.filter { it.id == recipeId }[0]
     }
+
+    fun getRecipesByIds(idsSet: Set<Int>): List<Recipe> {
+        val recipes = mutableListOf<Recipe>()
+        idsSet.forEach { id ->
+            recipes += burgerRecipes.filter { it.id == id }
+        }
+        return recipes
+    }
 }

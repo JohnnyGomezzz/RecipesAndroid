@@ -8,4 +8,6 @@
     <string name="string_portions_min">1</string>
     <string name="description_favorites_recipe">Добавить в избранное</string>
     <string name="description_not_favorites_recipe">Убрать из избранного</string>
+    <string name="description_favorites">Избранное</string>
+    <string name="text_no_favorites">Вы пока не добавили ни одного рецепта в избранное</string>
 </resources>
