@@ -1,4 +1,4 @@
-package com.example.recipesandroid
+package com.example.recipesandroid.ui.recipes.recipe
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -12,9 +12,9 @@ import android.view.ViewGroup
 import android.widget.SeekBar
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.recipesandroid.Constants.ARG_RECIPE
-import com.example.recipesandroid.Constants.FAVORITES_PREFS_FILE_KEY
-import com.example.recipesandroid.Constants.FAVORITE_RECIPES_KEY
+import com.example.recipesandroid.ui.Constants.ARG_RECIPE
+import com.example.recipesandroid.ui.Constants.FAVORITES_PREFS_FILE_KEY
+import com.example.recipesandroid.ui.Constants.FAVORITE_RECIPES_KEY
 import com.example.recipesandroid.databinding.FragmentRecipeBinding
 import com.google.android.material.divider.MaterialDividerItemDecoration
 
@@ -80,6 +80,7 @@ class RecipeFragment : Fragment() {
             dividerInsetStart = 20
             isLastItemDecorated = false
             dividerColor = 0xfff5f5f5.toInt()
+            dividerThickness = 1
         }
 
         with(binding) {

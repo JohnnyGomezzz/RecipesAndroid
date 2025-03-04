@@ -1,4 +1,4 @@
-package com.example.recipesandroid
+package com.example.recipesandroid.ui.recipes.recipeslist
 
 import android.graphics.drawable.Drawable
 import android.util.Log
@@ -9,6 +9,8 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recipesandroid.databinding.ItemRecipeBinding
+import com.example.recipesandroid.ui.OnItemClickListener
+import com.example.recipesandroid.ui.recipes.recipe.Recipe
 
 class RecipesListAdapter(private val dataSet: List<Recipe>) :
     RecyclerView.Adapter<RecipesListAdapter.ViewHolder>() {

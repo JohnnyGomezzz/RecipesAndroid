@@ -1,4 +1,8 @@
-package com.example.recipesandroid
+package com.example.recipesandroid.data
+
+import com.example.recipesandroid.ui.categories.Category
+import com.example.recipesandroid.ui.recipes.recipe.Ingredient
+import com.example.recipesandroid.ui.recipes.recipe.Recipe
 
 object STUB {
 
