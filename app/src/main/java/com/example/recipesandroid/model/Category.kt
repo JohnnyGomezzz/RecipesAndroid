@@ -1,4 +1,4 @@
-package com.example.recipesandroid.ui.categories
+package com.example.recipesandroid.model
 
 data class Category(
     val id: Int,

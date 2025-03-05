@@ -10,7 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recipesandroid.databinding.ItemRecipeBinding
 import com.example.recipesandroid.ui.OnItemClickListener
-import com.example.recipesandroid.ui.recipes.recipe.Recipe
+import com.example.recipesandroid.model.Recipe
 
 class RecipesListAdapter(private val dataSet: List<Recipe>) :
     RecyclerView.Adapter<RecipesListAdapter.ViewHolder>() {

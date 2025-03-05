@@ -16,6 +16,7 @@ import com.example.recipesandroid.ui.Constants.ARG_RECIPE
 import com.example.recipesandroid.ui.Constants.FAVORITES_PREFS_FILE_KEY
 import com.example.recipesandroid.ui.Constants.FAVORITE_RECIPES_KEY
 import com.example.recipesandroid.databinding.FragmentRecipeBinding
+import com.example.recipesandroid.model.Recipe
 import com.google.android.material.divider.MaterialDividerItemDecoration
 
 
