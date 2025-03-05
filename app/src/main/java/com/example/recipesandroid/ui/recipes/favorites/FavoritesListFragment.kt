@@ -1,4 +1,4 @@
-package com.example.recipesandroid
+package com.example.recipesandroid.ui.recipes.favorites
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -10,10 +10,15 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
-import com.example.recipesandroid.Constants.ARG_RECIPE
-import com.example.recipesandroid.Constants.FAVORITES_PREFS_FILE_KEY
-import com.example.recipesandroid.Constants.FAVORITE_RECIPES_KEY
+import com.example.recipesandroid.ui.Constants.ARG_RECIPE
+import com.example.recipesandroid.ui.Constants.FAVORITES_PREFS_FILE_KEY
+import com.example.recipesandroid.ui.Constants.FAVORITE_RECIPES_KEY
+import com.example.recipesandroid.R
+import com.example.recipesandroid.data.STUB
 import com.example.recipesandroid.databinding.FragmentFavoritesListBinding
+import com.example.recipesandroid.ui.OnItemClickListener
+import com.example.recipesandroid.ui.recipes.recipe.RecipeFragment
+import com.example.recipesandroid.ui.recipes.recipeslist.RecipesListAdapter
 
 class FavoritesListFragment : Fragment() {
 

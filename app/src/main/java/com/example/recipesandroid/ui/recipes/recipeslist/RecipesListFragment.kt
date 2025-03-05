@@ -1,4 +1,4 @@
-package com.example.recipesandroid
+package com.example.recipesandroid.ui.recipes.recipeslist
 
 import android.graphics.drawable.Drawable
 import android.os.Bundle
@@ -10,11 +10,15 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
-import com.example.recipesandroid.Constants.ARG_CATEGORY_ID
-import com.example.recipesandroid.Constants.ARG_CATEGORY_IMAGE_URL
-import com.example.recipesandroid.Constants.ARG_CATEGORY_NAME
-import com.example.recipesandroid.Constants.ARG_RECIPE
+import com.example.recipesandroid.ui.Constants.ARG_CATEGORY_ID
+import com.example.recipesandroid.ui.Constants.ARG_CATEGORY_IMAGE_URL
+import com.example.recipesandroid.ui.Constants.ARG_CATEGORY_NAME
+import com.example.recipesandroid.ui.Constants.ARG_RECIPE
+import com.example.recipesandroid.R
+import com.example.recipesandroid.data.STUB
 import com.example.recipesandroid.databinding.FragmentRecipesListBinding
+import com.example.recipesandroid.ui.OnItemClickListener
+import com.example.recipesandroid.ui.recipes.recipe.RecipeFragment
 
 class RecipesListFragment : Fragment() {
 

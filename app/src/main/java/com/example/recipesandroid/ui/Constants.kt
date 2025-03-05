@@ -1,4 +1,4 @@
-package com.example.recipesandroid
+package com.example.recipesandroid.ui
 
 object Constants {
 

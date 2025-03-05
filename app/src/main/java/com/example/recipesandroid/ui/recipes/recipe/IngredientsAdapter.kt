@@ -1,4 +1,4 @@
-package com.example.recipesandroid
+package com.example.recipesandroid.ui.recipes.recipe
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recipesandroid.databinding.ItemIngredientBinding
+import com.example.recipesandroid.model.Ingredient
 import java.math.BigDecimal
 import java.math.RoundingMode
 

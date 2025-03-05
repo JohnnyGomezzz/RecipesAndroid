@@ -17,7 +17,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:name="com.example.recipesandroid.CategoriesListFragment"
+        android:name="com.example.recipesandroid.ui.categories.CategoriesListFragment"
         tools:layout="@layout/fragment_categories_list" />
 
     <LinearLayout
