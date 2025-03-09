@@ -10,7 +10,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recipesandroid.databinding.ItemCategoryBinding
 import com.example.recipesandroid.model.Category
-import com.example.recipesandroid.ui.OnItemClickListener
+
+interface OnItemClickListener {
+
+    fun onItemClick(id: Int)
+
+}
 
 class CategoriesListAdapter(private val dataSet: List<Category>) :
     RecyclerView.Adapter<CategoriesListAdapter.ViewHolder>() {

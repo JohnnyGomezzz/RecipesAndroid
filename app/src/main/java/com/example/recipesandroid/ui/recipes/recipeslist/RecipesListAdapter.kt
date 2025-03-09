@@ -9,8 +9,13 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recipesandroid.databinding.ItemRecipeBinding
-import com.example.recipesandroid.ui.OnItemClickListener
 import com.example.recipesandroid.model.Recipe
+
+interface OnItemClickListener {
+
+    fun onItemClick(id: Int)
+
+}
 
 class RecipesListAdapter(private val dataSet: List<Recipe>) :
     RecyclerView.Adapter<RecipesListAdapter.ViewHolder>() {

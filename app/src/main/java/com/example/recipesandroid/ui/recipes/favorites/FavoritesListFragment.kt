@@ -16,8 +16,8 @@ import com.example.recipesandroid.ui.Constants.FAVORITE_RECIPES_KEY
 import com.example.recipesandroid.R
 import com.example.recipesandroid.data.STUB
 import com.example.recipesandroid.databinding.FragmentFavoritesListBinding
-import com.example.recipesandroid.ui.OnItemClickListener
 import com.example.recipesandroid.ui.recipes.recipe.RecipeFragment
+import com.example.recipesandroid.ui.recipes.recipeslist.OnItemClickListener
 import com.example.recipesandroid.ui.recipes.recipeslist.RecipesListAdapter
 
 class FavoritesListFragment : Fragment() {

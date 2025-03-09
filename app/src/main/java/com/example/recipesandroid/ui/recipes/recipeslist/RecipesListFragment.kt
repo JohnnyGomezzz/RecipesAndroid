@@ -17,7 +17,6 @@ import com.example.recipesandroid.ui.Constants.ARG_RECIPE
 import com.example.recipesandroid.R
 import com.example.recipesandroid.data.STUB
 import com.example.recipesandroid.databinding.FragmentRecipesListBinding
-import com.example.recipesandroid.ui.OnItemClickListener
 import com.example.recipesandroid.ui.recipes.recipe.RecipeFragment
 
 class RecipesListFragment : Fragment() {
