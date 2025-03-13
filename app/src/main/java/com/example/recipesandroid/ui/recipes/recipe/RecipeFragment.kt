@@ -50,8 +50,8 @@ class RecipeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        recipeViewModel.isFavorite.observe(viewLifecycleOwner) {
-            Log.i("!!!", "${recipeViewModel.isFavorite.value}")
+        recipeViewModel.recipeState.observe(viewLifecycleOwner) {
+            Log.i("!!!", "${recipeViewModel.recipeState.value?.isFavorite}")
         }
 
         val recipe = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
