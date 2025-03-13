@@ -36,7 +36,7 @@ class RecipeFragment : Fragment() {
             )
     }
 
-    private val model: RecipeViewModel by viewModels()
+    private val recipeViewModel: RecipeViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -50,10 +50,9 @@ class RecipeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val recipeObserver = Observer<Boolean> {
-            Log.i("!!!", "${model.isFavorite.value}")
+        recipeViewModel.isFavorite.observe(viewLifecycleOwner) {
+            Log.i("!!!", "${recipeViewModel.isFavorite.value}")
         }
-        model.isFavorite.observe(viewLifecycleOwner, recipeObserver)
 
         val recipe = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             requireArguments().getParcelable(ARG_RECIPE, Recipe::class.java)

@@ -31,7 +31,8 @@ class RecipeViewModel : ViewModel() {
 
     init {
         Log.i("!!!", "Сообщение от VM")
-        _isFavorite.value = uiState.value.isFavorite
+//        _isFavorite.value = uiState.value.isFavorite
+        val isFavoriteState: LiveData<Boolean> = _uiState.value.isFavorite
     }
 
     data class RecipeUiState(
