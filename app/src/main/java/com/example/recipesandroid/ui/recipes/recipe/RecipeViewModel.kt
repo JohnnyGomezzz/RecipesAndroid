@@ -17,7 +17,7 @@ class RecipeViewModel : ViewModel() {
     }
 
     private fun updateFavoriteStatus(isFavorite: Boolean) {
-        _recipeState.value = recipeState.value?.copy(isFavorite = isFavorite)
+        _recipeState.value = _recipeState.value?.copy(isFavorite = isFavorite)
     }
 
     data class RecipeState(
