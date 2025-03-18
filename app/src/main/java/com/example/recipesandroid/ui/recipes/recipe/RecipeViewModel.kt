@@ -1,17 +1,26 @@
 package com.example.recipesandroid.ui.recipes.recipe
 
+import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.recipesandroid.model.Recipe
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
 
 class RecipeViewModel : ViewModel() {
 
-    private val _uiState = MutableStateFlow(RecipeUiState())
-    val uiState: StateFlow<RecipeUiState> = _uiState.asStateFlow()
+    private val _recipeState: MutableLiveData<RecipeState> = MutableLiveData<RecipeState>()
+    val recipeState: LiveData<RecipeState> = _recipeState
 
-    data class RecipeUiState(
+    init {
+        updateFavoriteStatus(true)
+        Log.i("!!!", "Сообщение от VM")
+    }
+
+    private fun updateFavoriteStatus(isFavorite: Boolean) {
+        _recipeState.value = _recipeState.value?.copy(isFavorite = isFavorite)
+    }
+
+    data class RecipeState(
         val recipe: Recipe? = null,
         val numOfPortions: Int = 1,
         val isFavorite: Boolean = false,

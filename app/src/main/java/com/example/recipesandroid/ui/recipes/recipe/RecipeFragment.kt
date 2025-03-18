@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.SeekBar
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.recipesandroid.ui.Constants.ARG_RECIPE
 import com.example.recipesandroid.ui.Constants.FAVORITES_PREFS_FILE_KEY
@@ -34,6 +35,8 @@ class RecipeFragment : Fragment() {
             )
     }
 
+    private val recipeViewModel: RecipeViewModel by viewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -45,6 +48,10 @@ class RecipeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        recipeViewModel.recipeState.observe(viewLifecycleOwner) {
+            Log.i("!!!", "${recipeViewModel.recipeState.value?.isFavorite}")
+        }
 
         val recipe = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             requireArguments().getParcelable(ARG_RECIPE, Recipe::class.java)

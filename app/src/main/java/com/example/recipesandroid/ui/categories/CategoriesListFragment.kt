@@ -14,7 +14,6 @@ import com.example.recipesandroid.ui.Constants.ARG_CATEGORY_NAME
 import com.example.recipesandroid.R
 import com.example.recipesandroid.data.STUB
 import com.example.recipesandroid.databinding.FragmentCategoriesListBinding
-import com.example.recipesandroid.ui.OnItemClickListener
 import com.example.recipesandroid.ui.recipes.recipeslist.RecipesListFragment
 
 class CategoriesListFragment : Fragment() {
